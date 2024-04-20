@@ -1,0 +1,44 @@
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px; 
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px; 
+  margin-right: 10px; 
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  margin-right: 10px;
+}
+
+.nav-buttons button {
+  margin-right: 10px; 
+  padding: 5px 10px;
+  background-color: transparent; 
+  border: none;
+  color: #fff; 
+  cursor: pointer;
+}
+
+.nav-buttons button:hover {
+  background-color: rgba(255, 255, 255, 0.1); 
+}
+

@@ -1,0 +1,37 @@
+<h2>{{ title }}</h2>
+
+<div class="filter-container">
+  <div class="filter-row">
+    <label for="title">Search by title:</label>
+    <input type="text" id="title" [(ngModel)]="filter.title" (ngModelChange)="applyFilter()" />
+  </div>
+  <div class="filter-row">
+    <label for="minRating">Min:</label>
+    <input type="number" id="minRating" [(ngModel)]="filter.minRating" (ngModelChange)="applyFilter()" />
+  </div>
+  <div class="filter-row">
+    <label for="maxRating">Max:</label>
+    <input type="number" id="maxRating" [(ngModel)]="filter.maxRating" (ngModelChange)="applyFilter()" />
+  </div>
+  <button class="clear-button" (click)="clearFilter()">Clear</button>
+</div>
+
+
+<div class="movie-grid">
+  <div class="movie-card" *ngFor="let movie of filteredMovies">
+    <div class="card-image">
+      <img [src]="movie.image" alt="{{ movie.movie }}" (error)="handleImageError($event)" />
+    </div>
+    <div class="card-content">
+      <div class="movie-title">{{ movie.movie }}</div>
+      <div class="movie-rating">Rating: {{ movie.rating }}</div>
+      <ng-container *ngIf="!isInFavorites(movie.id)">
+        <button (click)="addToFavorites(movie.id)">Add to Favorites</button>
+      </ng-container>
+      <ng-container *ngIf="isInFavorites(movie.id)">
+        <button (click)="removeFavorite(movie.id)">Remove from Favorites</button>
+      </ng-container>
+    </div>
+  </div>
+</div>
+

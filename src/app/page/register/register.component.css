@@ -1,0 +1,60 @@
+.background {
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+    background-color: darkred;
+    height: 100vh;
+    display: flex;
+}
+
+.container {
+    background-color: #333; 
+    color: white; 
+    border: 2px solid darkred;
+    border-radius: 10px;
+    padding: 20px;
+    width: 66%;
+    max-width: 600px;
+    float: left;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 4%;
+}
+
+h2 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.form-control {
+    width: calc(100% - 24px); /* Adjust for padding and borders */
+    padding: 10px;
+    border: 1px solid darkred;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: darkred;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #800000;
+}
+
+.error-message {
+    margin-left: 10px; 
+    color: red; 
+}
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+}

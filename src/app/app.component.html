@@ -3,6 +3,24 @@
     font-family: sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    
+    display: flex;
+    flex-direction: column;
+  }
+
+  app-header {
+    height:13vh;
+  }
+
+  router-outlet {
+    flex: 1; 
+    height: 80vh;
+    overflow-y: auto; 
+  }
+
+  app-footer {
+    margin-top: auto; /* Push footer to the bottom of the viewport */
+    height:7vh;
   }
 </style>
 

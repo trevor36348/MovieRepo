@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, map } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -52,15 +52,15 @@ export class AuthService {
       .subscribe(res => {});
   }
 
-  getFavorites(email: String): string[] {
+  getFavorites(email: string): Observable<string[]> {
     const emailData = { email };
-    this.http.post<{favorites: string[]}>('http://localhost:3000/api/favorites', emailData)
-      .subscribe(res => {
-        console.log(res.favorites);
-        this.favorites = res.favorites;
-      });
-      console.log(this.favorites);
-      return this.favorites;
+    return this.http.post<{ favorites: string[] }>('http://localhost:3000/api/favorites', emailData)
+      .pipe(
+        map(res => {
+          this.favorites = res.favorites;
+          return this.favorites;
+        })
+      );
   }
 
   getToken(): string | null {

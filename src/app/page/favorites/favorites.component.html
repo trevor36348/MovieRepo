@@ -1,1 +1,19 @@
-<p>favorites works!</p>
+<div class="movie-grid">
+  <h2>{{ title }}</h2>
+  <div class="movie-card" *ngFor="let movie of filteredMovies">
+    <div class="card-content">
+      <div class="movie-info">
+        <div class="card-image">
+          <img [src]="movie.image" alt="{{ movie.movie }}" (error)="handleImageError($event)" />
+        </div>
+        <div class="movie-details">
+          <div class="movie-title">{{ movie.movie }}</div>
+          <div class="movie-rating">Rating: {{ movie.rating }}</div>
+        </div>
+      </div>
+      <div class ="movie-remove">
+        <button class="remove-button">Remove from Favorites</button>
+      </div>
+    </div>
+  </div>
+</div>

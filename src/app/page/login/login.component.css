@@ -1,10 +1,10 @@
 .background {
-    max-height: calc(100vh - 150px);
     overflow-y: auto;
     background-color: darkred;
-    height: 100vh;
+    height: 80vh;
     display: flex;
 }
+
 
 .container {
     background-color: #333; 

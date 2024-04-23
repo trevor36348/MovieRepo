@@ -20,6 +20,7 @@ export class MovieboxComponent implements OnInit {
   filteredMovies: Movie[] = [];
   filter: MovieFilter = { title: '', minRating: 0, maxRating: 10 };
   userFavorites: String[] = [];
+  private favoritesSub: Subscription = new Subscription();
 
   private email = "";
 
@@ -46,7 +47,9 @@ export class MovieboxComponent implements OnInit {
   loadUserFavorites(): void {
     const userKey = this.authService.getUserkey();
     this.email = userKey !== null ? userKey : '';
-    this.userFavorites = this.authService.getFavorites(this.email)
+    this.favoritesSub = this.authService.getFavorites(this.email).subscribe((favorites: string[]) => {
+      this.userFavorites = favorites;
+    });
   }
 
   getMovies(): void {
